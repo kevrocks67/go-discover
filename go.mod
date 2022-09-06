@@ -1,4 +1,4 @@
-module github.com/hashicorp/go-discover
+module github.com/kevrocks67/go-discover
 
 require (
 	github.com/Azure/azure-sdk-for-go v44.0.0+incompatible
@@ -40,6 +40,7 @@ require (
 	k8s.io/api v0.18.2
 	k8s.io/apimachinery v0.18.2
 	k8s.io/client-go v0.18.2
+	libvirt.org/go/libvirt v1.8006.0 // indirect
 )
 
 go 1.12

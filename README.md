@@ -1,5 +1,6 @@
 # Go Discover Nodes for Cloud Providers [![CircleCI](https://circleci.com/gh/hashicorp/go-discover.svg?style=shield)](https://circleci.com/gh/hashicorp/go-discover) [![GoDoc](https://godoc.org/github.com/hashicorp/go-discover?status.svg)](https://godoc.org/github.com/hashicorp/go-discover)
 
+This fork is for experimenting with adding support for libvirt
 
 `go-discover` is a Go (golang) library and command line tool to discover
 ip addresses of nodes in cloud environments based on meta information
@@ -25,6 +26,7 @@ function.
  * Amazon AWS [Config options](https://github.com/hashicorp/go-discover/blob/8b3ddf4/provider/aws/aws_discover.go#L19-L34)
  * DigitalOcean [Config options](https://github.com/hashicorp/go-discover/blob/8b3ddf4/provider/digitalocean/digitalocean_discover.go#L22-L30)
  * Google Cloud [Config options](https://github.com/hashicorp/go-discover/blob/8b3ddf4/provider/gce/gce_discover.go#L23-L43)
+ * Libvirt [Config options](https://github.com/kevrocks67/go-discover/blob/master/provider/libvirt/libvirt_discover.go#L15-L22)
  * Linode [Config options](https://github.com/hashicorp/go-discover/blob/master/provider/linode/linode_discover.go#L30-L41)
  * mDNS [Config options](https://github.com/hashicorp/go-discover/blob/master/provider/mdns/mdns_provider.go#L19-L31)
  * Microsoft Azure [Config options](https://github.com/hashicorp/go-discover/blob/8b3ddf4/provider/azure/azure_discover.go#L24-L62)
@@ -60,6 +62,9 @@ provider=digitalocean region=... tag_name=... api_token=...
 
 # Google Cloud
 provider=gce project_name=... zone_pattern=eu-west-* tag_value=consul credentials_file=...
+
+# Libvirt
+provider=libvirt qemu_uri=qemu:///system ns_identifier=consul metadata_key=agent metadata_value=server
 
 # Linode
 provider=linode tag_name=... region=us-east address_type=private_v4 api_token=...
@@ -100,7 +105,7 @@ provider=k8s label_selector="app = consul-server"
 Install the command line tool with:
 
 ```
-go get -u github.com/hashicorp/go-discover/cmd/discover
+go install github.com/kevrocks67/go-discover/cmd/discover@latest
 ```
 
 Then run it with:
@@ -114,7 +119,7 @@ $ discover addrs provider=aws region=eu-west-1 ...
 Install the library with:
 
 ```
-go get -u github.com/hashicorp/go-discover
+go get -u github.com/kevrocks67/go-discover
 ```
 
 You can then either support discovery for all available providers
@@ -166,7 +171,7 @@ sub-package.
 
 ## Testing
 
-**Note: Due to the `go.sum` checksum errors referenced in [#68](https://github.com/hashicorp/go-discover/issues/68), 
+**Note: Due to the `go.sum` checksum errors referenced in [#68](https://github.com/hashicorp/go-discover/issues/68),
 you will need Go 1.11.4+ to build/test go-discover.**
 
 Configuration tests can be run with Go:

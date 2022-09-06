@@ -9,20 +9,21 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/hashicorp/go-discover/provider/aliyun"
-	"github.com/hashicorp/go-discover/provider/aws"
-	"github.com/hashicorp/go-discover/provider/azure"
-	"github.com/hashicorp/go-discover/provider/digitalocean"
-	"github.com/hashicorp/go-discover/provider/gce"
-	"github.com/hashicorp/go-discover/provider/linode"
-	"github.com/hashicorp/go-discover/provider/mdns"
-	"github.com/hashicorp/go-discover/provider/os"
-	"github.com/hashicorp/go-discover/provider/packet"
-	"github.com/hashicorp/go-discover/provider/scaleway"
-	"github.com/hashicorp/go-discover/provider/softlayer"
-	"github.com/hashicorp/go-discover/provider/tencentcloud"
-	"github.com/hashicorp/go-discover/provider/triton"
-	"github.com/hashicorp/go-discover/provider/vsphere"
+	"github.com/kevrocks67/go-discover/provider/aliyun"
+	"github.com/kevrocks67/go-discover/provider/aws"
+	"github.com/kevrocks67/go-discover/provider/azure"
+	"github.com/kevrocks67/go-discover/provider/digitalocean"
+	"github.com/kevrocks67/go-discover/provider/gce"
+	libvirt_discover "github.com/kevrocks67/go-discover/provider/libvirt"
+	"github.com/kevrocks67/go-discover/provider/linode"
+	"github.com/kevrocks67/go-discover/provider/mdns"
+	"github.com/kevrocks67/go-discover/provider/os"
+	"github.com/kevrocks67/go-discover/provider/packet"
+	"github.com/kevrocks67/go-discover/provider/scaleway"
+	"github.com/kevrocks67/go-discover/provider/softlayer"
+	"github.com/kevrocks67/go-discover/provider/tencentcloud"
+	"github.com/kevrocks67/go-discover/provider/triton"
+	"github.com/kevrocks67/go-discover/provider/vsphere"
 )
 
 // Provider has lookup functions for meta data in a
@@ -50,6 +51,7 @@ var Providers = map[string]Provider{
 	"azure":        &azure.Provider{},
 	"digitalocean": &digitalocean.Provider{},
 	"gce":          &gce.Provider{},
+	"libvirt":      &libvirt_discover.Provider{},
 	"linode":       &linode.Provider{},
 	"mdns":         &mdns.Provider{},
 	"os":           &os.Provider{},
